@@ -1,0 +1,173 @@
+/* -------------------- post 10.05 @CB--------------------- */
+.two-col-grid-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    margin: 2rem auto;
+    width: 60%;
+}
+
+.two-col-grid-container::before,
+.two-col-grid-container::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+}
+
+.post {
+    /* break-inside: avoid; */
+    margin: 0.5rem;
+    min-width: 250px;
+    width: 43%;
+    max-width: 450px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.post:nth-child(2n+1) {
+    order: 1;
+}
+
+.post:nth-child(2n) {
+    order: 2;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.post-user-avatar {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-user-avatar>img {
+    width: 100%;
+    position: absolute;
+}
+
+.post-user-name,
+.post-view-comment,
+.post-like {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin: 0 5px;
+}
+
+.post-time {
+    font-size: 0.8rem;
+    color: gainsboro;
+    font-weight: 500;
+}
+
+.post-title {
+    margin: 0.7rem 0;
+}
+
+.post-img-proportion {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-img-proportion>img {
+    width: 100%;
+    position: absolute;
+    top: -50%;
+}
+
+.post-description {
+    width: 100%;
+    font-size: 0.7rem;
+}
+
+.post-view-comment:hover,
+.post-like:hover,
+#browseBtn:hover {
+    cursor: pointer;
+}
+
+.post-view-comment,
+.post-like {
+    padding: 10px 5px 10px 0;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.comment-icon::before {
+    content: '⌨';
+}
+
+.nolike-icon::before {
+    content: '♡';
+}
+
+.like-icon::before {
+    content: '♥';
+}
+
+@media screen and (max-width: 600px) {
+    .two-col-grid-container {
+        flex-flow: column nowrap;
+        width: 80%;
+    }
+    .post {
+        width: 90%;
+    }
+    .post:nth-child(2n+1),
+    .post:nth-child(2n) {
+        order: 0;
+    }
+    .two-col-grid-container::before,
+    .two-col-grid-container::after {
+        display: none;
+    }
+}
+
+/* -------------------- post^ --------------------- */
+.navmenubox {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    margin: 0 4rem 0 0;
+    padding: 0;
+}
+
+
+.navmenubox li {
+    font-size: 1.4rem;
+    font-weight: bold;
+    list-style: none;
+}
+
+.nav li a {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    color: black;
+    text-decoration: none;
+}
+/*title*/
+.section-header {
+    text-align: center;
+    padding: 2rem 0;
+    }
+    
+    .section-header h2 {
+    margin-bottom: 0;
+    }
+    
+    .park-brief-intro {
+    margin-top: 0;
+    }
+    

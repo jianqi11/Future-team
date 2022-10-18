@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">DECO 3500</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a href="homepage.html"> Home </a>
+        </li>
+    </ul>
+    <ul class="navbar-nav my-lg-0">
+            <li class="nav-item">
+            <a href="login.html"> Logout </a>
+           </li>
+    </ul>
+
+    </div>
+</nav>
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="search the name/id...">
+
+<table id="myTable">
+    <ul class="short-cut">
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat">
+                    <i class="fa fa-user" ></i>
+                        <p>Mike<br>
+                            <span id="l1">Hello professor, how are you?</span></p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat1">
+                    <i class="fa fa-user"></i>
+                        <p>Jack<br>
+                        <span id="l2">Hi Professor, is there any instructional video about gas chromatograph?</span></p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat2">
+                    <i class="fa fa-user"></i>
+                        <p>Alex<br>
+                        <span id="l3">Hi,prof, what should I do if the measurement of the pH meter is different?</span></p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat3">
+                    <i class="fa fa-user"></i>
+                        <p>Tony<br>
+                        <span>Hi Professor, is there a course for CO incubators?</span></p>
+                  </a>
+            </div>
+        </li>
+
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat4">
+                    <i class="fa fa-user"></i>
+                        <p>Ricky<br>
+                        <span>May I ask for 1v1 class for this weekend?</span></p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat5">
+                    <i class="fa fa-user"></i>
+                        <p>Lin<br>
+                        <span>Hi, prof, are the conditions of the constant temperature water bath critical?</span></p>
+                </a>
+            </div>
+        </li>
+    </ul>
+</table>
+    <div class="chat" id="chat">
+        <div style="float:left; margin-top: 5px;margin-left: 230px;margin-bottom: 15px;"><span style="font-size:20px">Mike</span></div>
+        <div style="float:right; margin-right: 5px;"><button id="close">X</button></div>
+        <br>
+        <div class="bubble left">
+            <div class="wrap">
+              <div class="content">Hello professor, how are you?</div>
+            </div>
+          </div>
+        
+          <div class="bubble right" id="chatR">
+           <br>
+            <div class="wrap">
+              <div class="content" id="text1">xxx</div>
+            </div>
+          </div>
+        <br>
+        <textarea id="text" type="text" style="width:300px; height:60px;position:absolute;left:18%;top:300px" onkeydown="play()"></textarea>
+        </div>
+    </div>
+    <div id="chat1">
+        <div style="float:left; margin-top: 5px;margin-left: 230px;margin-bottom: 15px;"><span style="font-size:20px">Jack</span></div>
+        <div style="float:right; margin-right: 5px;"><button id="closeA">X</button></div>
+        <div class="bubble left">
+            <div class="wrap">
+              <div class="content">Hi Professor, is there any instructional video about gas chromatograph?</div>
+            </div>
+          </div>
+          
+          <div class="bubble right" id="chatR1">
+           <br>
+            <div class="wrap">
+              <div class="content" id="textA1">xxx</div>
+            </div>
+          </div>
+        <br>
+        <textarea id="textA" type="text" style="width:300px; height:60px;position:absolute;left:18%;top:300px" onkeydown="play1()"></textarea>
+    </div>
+    <div id="chat2">
+        <div style="float:left; margin-top: 5px;margin-left: 230px; margin-bottom: 15px;"><span style="font-size:20px">Alex</span></div>
+        <div style="float:right; margin-right: 5px;"><button id="closeB">X</button></div>
+        <div class="bubble left">
+            <div class="wrap">
+              <div class="content">Hi,prof, what should I do if the measurement of the pH meter is different?</div>
+            </div>
+          </div>
+          
+          <div class="bubble right" id="chatR2">
+           <br>
+            <div class="wrap">
+              <div class="content" id="textA2">xxx</div>
+            </div>
+          </div>
+        <br>
+        <textarea id="textB" type="text" style="width:300px; height:60px;position:absolute;left:18%;top:300px" onkeydown="play2()"></textarea>
+    </div>
+<style>
+ 
+
+    .bubble .content {
+      width: auto;
+      padding: 0.7em 0.5em;
+      font-size: 13px;
+      border-radius: 6px;
+      border: 1px solid;
+      position: relative;
+      display: inline-block;
+    }
+    .bubble .content:before {
+      content: '';
+      display: inline-block;
+      box-sizing: border-box;
+      width: 12px;
+      height: 12px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      position: absolute;
+      background-color: inherit;
+      border-right-color: inherit;
+      border-bottom-color: inherit;
+    }
+    .bubble.left {
+      text-align: left;
+    }
+    .bubble.right {
+      text-align: right;
+    }
+    .bubble.left .wrap {
+      margin-left: 56px;
+      margin-right: 56px;
+    }
+    .bubble.left .content {
+        background: #fafafa;
+        border-color: #c6c6c6;
+    }
+    .bubble.left .content:before {
+      left: -6px;
+      top: 16px;
+      transform: rotate(135deg);
+    }
+    .bubble.right .wrap {
+      margin-right: 56px;
+      margin-left: 56px;
+    }
+    .bubble.right .content {
+      background: #b3e866;
+      border-color: #9ab96b;
+      text-align: left;
+    }
+    .bubble.right .content:before {
+      right: -6px;
+      top: 16px;
+      transform: rotate(-45deg);
+    }
+    #close:hover{ 
+        background-color: red;
+        color: white;
+        border: 1px solid transparent;
+    }
+    #closeA:hover{ 
+        background-color: red;
+        color: white;
+        border: 1px solid transparent;
+    }
+    #closeB:hover{ 
+        background-color: red;
+        color: white;
+        border: 1px solid transparent;
+    }
+    #closeB,#close,#closeA{ 
+        border: 1px solid transparent;
+    }
+    .chatBox i{ 
+        border-radius: 100%;
+        background-color: orange;
+        color: white;
+        padding: 5px;
+    }
+    #chatR,#chatR1,#chatR2{ 
+        display: none;
+    }
+    .chat{ 
+        width: 500px;
+        height: 400px;
+        background-color: rgb(250, 244, 244);
+        position: absolute;
+        top: 50px;
+        left: 35%;
+        box-shadow:0px 15px 10px -15px #000;
+        font-size: 10px;
+        display: none;
+    }
+    #chat1{
+        width: 500px;
+        height: 400px;
+        background-color: rgb(250, 244, 244);
+        position: absolute;
+        top: 50px;
+        left: 35%;
+        box-shadow:0px 15px 10px -15px #000;
+        font-size: 10px;
+        display: none;
+    }
+    #chat2{ 
+        width: 500px;
+        height: 400px;
+        background-color: rgb(250, 244, 244);
+        position: absolute;
+        top: 50px;
+        left: 35%;
+        box-shadow:0px 15px 10px -15px #000;
+        font-size: 10px;
+        display: none;
+    }
+    #myInput {
+        background-image: url("./img/search.png");
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+   
+    a{ 
+        overflow: hidden;
+        text-decoration:none;
+        color:black;
+        padding: 20px;
+    }
+    html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ol, ul {
+	list-style: none;
+}
+ .short-cut i{ 
+    display: block;
+    float:left;
+    font-size: 30px;
+    margin: 10px;
+    margin-top: 20px;
+ }
+ .chatBox{ 
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 10px;
+    height: 80px;
+ }
+ .short-cut{ 
+    width: 700px;
+    margin: auto;
+ }
+ .short-cut p{ 
+    display: block;
+    margin-top: 18px;
+ }
+ .short-cut span{ 
+    color:grey;
+    font-size: 13px;
+ }
+ 
+</style>
+<script type="text/javascript">
+    function myFunction() {
+
+        var input, filter, table,li, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        li = document.getElementsByTagName('li')
+        for (i = 0; i < li.length; i++) {
+            if (li[i]) {
+                if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    }
+    // open the chat
+    let chat = document.getElementById("chat")
+    let openChat = document.getElementById("openChat")
+    openChat.onclick = function(){
+        chat.style.display = "block"
+    }
+
+    let text = document.getElementById("text")
+    let text1 = document.getElementById("text1")
+    let chatR = document.getElementById("chatR")
+    let l1 = document.getElementById("l1")
+    function play(){
+        if(window.event && event.keyCode == 13){
+            text1.innerHTML = text.value
+            l1.innerHTML = text.value
+            text.value = ""
+            chatR.style.display = "block"
+        }
+    }
+    
+    // open the chat1
+    let chat1 = document.getElementById("chat1")
+    let openChat1 = document.getElementById("openChat1")
+    openChat1.onclick = function(){
+        chat1.style.display = "block"
+    }
+    // open the chat2
+    let chat2 = document.getElementById("chat2")
+    let openChat2 = document.getElementById("openChat2")
+    openChat2.onclick = function(){
+        chat2.style.display = "block"
+    }
+
+    let textA = document.getElementById("textA")
+    let textA1 = document.getElementById("textA1")
+    let chatR1 = document.getElementById("chatR1")
+    let l2 = document.getElementById("l2")
+    function play1(){
+        if(window.event && event.keyCode == 13){
+            textA1.innerHTML = textA.value
+            l2.innerHTML = textA.value
+            textA.value = ""
+            chatR1.style.display = "block"
+        }
+    }
+
+    let l3 = document.getElementById("l3")
+    let textB = document.getElementById("textB")
+    let textA2 = document.getElementById("textA2")
+    let chatR2 = document.getElementById("chatR2")
+    function play2(){
+        if(window.event && event.keyCode == 13){
+            textA2.innerHTML = textB.value
+            l3.innerHTML = textB.value
+            textB.value = ""
+            chatR2.style.display = "block"
+        }
+    }
+    // close the chat
+    
+    let close = document.getElementById("close")
+    close.onclick = function(){
+        chat.style.display = "none"
+    }
+
+    let closeA = document.getElementById("closeA")
+    closeA.onclick = function(){
+        chat1.style.display = "none"
+    }
+    let closeB = document.getElementById("closeB")
+    closeB.onclick = function(){
+        chat2.style.display = "none"
+    }
+
+
+</script>
+</body>
+</html>

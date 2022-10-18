@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #content{
+        border: 1px solid saddlebrown;
+        padding: 16px;
+        border-radius: 2px;
+        width: 800px;
+        height: 450px;
+        margin: auto;
+        text-align: center;
+        margin-top: 100px;
+        border-radius: 45px;
+        background-color: rgb(124, 185, 226);
+    }
+    ._p ._p1{
+        margin: 14px;
+    }
+    ._p input{
+        display: inline-block;
+        width: 300px;
+        margin-left: 6px;
+    }
+    ._p ._p1 span{
+        font-size: 15px;
+    }
+    .myButton {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+    margin-top: 20px;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+#finish{ 
+    width:500px;
+    height: 300px;
+    background-color: rgb(206, 210, 209);
+    position: absolute;
+    top: 150px;
+    left:35%;
+    display: none;
+}
+.topic{ 
+    background-color: #fff;
+    border-radius: 30px;
+    width: 400px;
+    margin-left: 200px;
+}
+</style>
+<body>
+<div id="content"  >
+    <div class="topic">
+        <h2 style="text-align: center;">Upload your Video</h3>
+    </div>
+    
+    <br>    
+    <p class="_p"><span>Video Title</span>：<input id="title" type="text" class="form-control" placeholder="Please type the Video name"></p>
+    <p class="_p1">
+        <span>Choice Video： </span>
+        <input type="file" id="inputFile" name="inputFile" style="display:none" onchange="changeAgentContent()" />
+        <input type="text" value="" disabled id="inputFileAgent" />
+        <input type="button" onclick="document.getElementById('inputFile').click()" value="Browse..." />
+        <br>
+        <a href="#" class="myButton" style="margin-top:100px; margin-left: 10px;" onclick="upload()"> Upload</a>
+        <!-- loading -->
+        <div id="loading" style="display:none">  
+            <img src="./img/loading.gif" style="position:absolute;left:42%; top:10%;" >
+        </div>
+        <!-- finish page -->
+        <div id="finish">
+            <h2 style="margin-top:100px">Congratulations!</h2>
+            <h2 style="margin-top:50px">The upload is complete</h2>
+        </div>    
+  </div>
+<script type="text/javascript">
+    function changeAgentContent(){
+        document.getElementById("inputFileAgent").value = document.getElementById("inputFile").value;
+    }
+    function upload(){
+        document.getElementById("loading").style = "display:block;"
+        setTimeout(()=>{
+            document.getElementById("loading").style = "display:none;"
+            document.getElementById("finish").style = "display:block;"
+        },
+        2000)
+        setTimeout(()=>{
+            document.getElementById("finish").style = "display:none;"
+        },
+        4000)
+
+    }
+</script>
+</body>
+</html>

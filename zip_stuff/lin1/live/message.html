@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+</head>
+<body>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="search the name/id...">
+
+<table id="myTable">
+    <ul class="short-cut">
+        <li>
+            <div class="chatBox">
+                <a href="#" id="openChat">
+                    <i class="fa fa-user"></i>
+                        <p>Mike<br>
+                            Hello professor, how are you?</p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                        <p>Jack<br>
+                        Hi Professor, is there any instructional video about gas chromatograph?</p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                        <p>Alex<br>
+                        Hi,prof, what should I do if the measurement of the pH meter is different?</p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                        <p>Tony<br>
+                        Hi Professor, is there a course for CO incubators?</p>
+                  </a>
+            </div>
+        </li>
+
+        <li>
+            <div class="chatBox">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                        <p>Ricky<br>
+                        May I ask for 1v1 class for this weekend?</p>
+                  </a>
+            </div>
+        </li>
+        <li>
+            <div class="chatBox">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                        <p>Lin<br>
+                        Hi, prof, are the conditions of the constant temperature water bath critical?</p>
+                </a>
+            </div>
+        </li>
+    </ul>
+</table>
+    <div class="chat" id="chat">
+        <div style="float:left; margin-top: 5px;margin-left: 230px;"><span style="font-size:20px">Mike</span></div>
+        <div style="float:right; margin-right: 5px;"><button id="close">X</button></div>
+        
+        <i class="fa fa-user" id="uu"></i>  
+        <div class="common"> 
+        <p style="line-height: 50px;">Hello professor, how are you?</p>
+        <div class="chatR" id="chatR">
+            <i class="fa fa-user"></i>  
+            <div class="common1"> 
+                <p style="line-height: 50px;" id="text1">""</p>
+            </div>
+        </div>
+        <br>
+        <!-- <textarea style="width:300px; height:60px;position:absolute;left:18%;top:240px" οnkeydοwn="play()"></textarea> -->
+        <textarea id="text" type="text" style="width:300px; height:60px;position:absolute;left:18%;top:240px" onkeydown="play()"></textarea>
+
+    </div>
+<style>
+    .chatR{ 
+        margin-left: 390px;
+        display: none;
+    }
+    .chatR i{ 
+        display: block;
+        text-align: center;
+        width: 20px;
+        font-size: 20px;
+        margin: 10px;
+        padding: 5px;
+        border: 2px solid grey;
+        border-radius: 23px;
+    }
+    #uu{ 
+        display: block;
+        clear: both;
+        text-align: center;
+        width: 20px;
+        font-size: 20px;
+        margin: 10px;
+        margin-top: 50px;
+        padding: 5px;
+        border: 2px solid grey;
+        border-radius: 23px;
+    }
+    .chatLeft{ 
+        width: 400px;
+        height: 100px;
+    }
+    .chat{ 
+        width: 500px;
+        height: 400px;
+        background-color: white;
+        position: absolute;
+        top: 50px;
+        left: 35%;
+        border: 2px solid grey;
+        font-size: 10px;
+        display: none;
+    }
+    #myInput {
+        background-image: url("./img/search.png");
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+   
+    a{ 
+        overflow: hidden;
+        text-decoration:none;
+        color:black;
+        padding: 20px;
+    }
+    html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ol, ul {
+	list-style: none;
+}
+ .short-cut i{ 
+    display: block;
+    float:left;
+    font-size: 30px;
+    margin: 10px;
+    margin-top: 20px;
+ }
+ .chatBox{ 
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 10px;
+    height: 80px;
+ }
+ .short-cut{ 
+    width: 700px;
+    margin: auto;
+ }
+ .short-cut p{ 
+    display: block;
+    margin-top: 18px;
+ }
+ .common {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    position: relative;
+    text-align: center;
+    float: left;
+    margin-left: 60px;
+    margin-top: -30px;
+    }
+    .common::before {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 10px solid aquamarine;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+    }
+    .common1 {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    position: relative;
+    text-align: center;
+    float: left;
+    margin-left: -210px;
+    margin-top: -30px;
+    }
+    .common1::before {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid aquamarine;
+    border-top: 10px solid transparent;
+    }
+    .common1 i{ 
+        margin-left: -180px;
+    }
+</style>
+<script type="text/javascript">
+    function myFunction() {
+
+        var input, filter, table,li, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        li = document.getElementsByTagName('li')
+        for (i = 0; i < li.length; i++) {
+            if (li[i]) {
+                if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    }
+    // open the chat
+    let openChat = document.getElementById("openChat")
+    openChat.onclick = function(){
+        chat.style.display = "block"
+    }
+
+    let chat1 = document.getElementById("chat1")
+    // chat1.onclick = function(){
+    //     alert(li.innerHTML)
+    // }
+    let text = document.getElementById("text")
+    let text1 = document.getElementById("text1")
+    let chatR = document.getElementById("chatR")
+    function play(){
+        if(window.event && event.keyCode == 13){
+            text1.innerHTML = text.value
+            text.value = ""
+            chatR.style.display = "block"
+        }
+    }
+    
+    // close the chat
+    let chat = document.getElementById("chat")
+    let close = document.getElementById("close")
+    close.onclick = function(){
+        chat.style.display = "none"
+    }
+</script>
+</body>
+</html>

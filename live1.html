@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+</head>
+<style>
+    .leftSide{
+        width: 500px;
+        height: 600px;
+        float: left;
+        border: 2px solid;
+        z-index: 200;
+    }
+    .liveVideo{ 
+        width: 600px;
+        height: 550px;
+        background-color: black;
+        float:left;
+        z-index: 99999;
+    }
+    .bottom{ 
+        width: 600px;
+        height: 50px;
+        border: 2px solid;
+        border-left: 0px;
+        float: left;
+        border-right: 1px solid;
+    }
+    .out{ 
+        position: relative;
+        width: 1226px;
+        margin:0 auto;
+        margin-top: 60px;
+    }
+    .out #box{ 
+        padding-top: 100px;
+        width: 100%;
+        height: 800px;
+        position:absolute;
+        background-color: white;
+        display: block;
+        z-index: 99999;
+        text-align: center;
+    }
+    .box1{ 
+        width: 500px;
+        margin: auto;
+        border: 2px solid grey;
+        border-radius: 50px;
+        padding-bottom: 20px;
+        background-color: rgb(217, 223, 227);
+    }
+    .out #box i{
+    display: block;
+    margin-top: 20px;
+    font-size: 50px;
+}
+.danmu{ 
+        width:120px;
+        height: 30px;
+        position: absolute;
+        color:grey;
+        z-index: 9;
+        left: 400px;
+        animation-name:test;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: 2;
+        animation-fill-mode: forwards;
+        display: none;
+    }
+    .danmu1{ 
+        width:120px;
+        height: 30px;
+        position: absolute;
+        color: grey;
+        z-index: 999;
+        left: 985px;
+        animation-name:test;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: 2;
+        animation-fill-mode: forwards;
+        display: none;
+    }
+    .danmu2{ 
+        width:120px;
+        height: 30px;
+        position: absolute;
+        color: grey;
+        z-index: 999;
+        left: 985px;
+        animation-name:test;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: 2;
+        animation-fill-mode: forwards;
+        display: none;
+        text-align: center;
+    }
+    @keyframes test{
+        from{
+            left: 985px;
+        }
+        to{
+            left: 505px;
+        }
+    }
+    .common {
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    position: relative;
+    text-align: center;
+    float: left;
+    margin-left: 70px;
+    margin-top: -10px;
+    }
+    .common::before {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 10px solid aquamarine;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+    }
+    .rect {
+        position: absolute;
+        top: 150px;
+        left: 730px;
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(to left, #f00, #f00) left top no-repeat,
+            linear-gradient(to bottom, #f00, #f00) left top no-repeat,
+            linear-gradient(to left, #f00, #f00) right top no-repeat,
+            linear-gradient(to bottom, #f00, #f00) right top no-repeat,
+            linear-gradient(to left, #f00, #f00) left bottom no-repeat,
+            linear-gradient(to bottom, #f00, #f00) left bottom no-repeat,
+            linear-gradient(to left, #f00, #f00) right bottom no-repeat,
+            linear-gradient(to left, #f00, #f00) right bottom no-repeat;
+        background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+    }
+    .myButton {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+    margin-top: 20px;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.bottom i{
+    display: block;
+    margin-top: -25px;
+    margin-left: 550px;
+    font-size: 25px;
+}
+.share{ 
+    width: 400px;
+    height: 350px;
+    background-color: white;
+    position: absolute;
+    left:352px;
+    border: 2px solid grey;
+    top: 125px;
+    border-radius: 35px;
+    display: none;
+}
+.tooltip{ 
+    width: 800px;
+    height: 400px;
+    border: 2px solid grey;
+    margin: auto;
+}
+.s-icon i{ 
+    display: block; 
+    font-size:40px;
+}
+ol, ul {
+	list-style: none;
+}
+.s-icon a{
+    color:#cfccca;
+    display: block;
+    height: 84px;
+    width: 76px;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    text-decoration:none;
+    float: left;
+}
+#uu{ 
+        display: block;
+        clear: both;
+        text-align: center;
+        width: 20px;
+        font-size: 20px;
+        margin: 10px;
+        margin-top: 20px;
+        padding: 5px;
+        border: 2px solid grey;
+        border-radius: 23px;
+        margin-left: 15px;
+    }
+    #u1,#u2,#u3,#u4{ 
+    display: none;
+}
+.video1{
+    width: 500px;
+    height: 600px;
+}
+#shareBtn i{ 
+    display:block; 
+    position: relative; 
+    top:-5px;
+}
+.down{ 
+    width: 390px;
+    height: 60px;
+    background-color:rgb(153, 207, 153); 
+    float:left;
+    margin-left: -15px;
+    display: none;
+}
+.down a{ 
+    color:#cfccca;
+    display: block;
+    height: 80px;
+    width: 76px;
+    text-align: center;
+    font-size: 10px;
+    overflow: hidden;
+    text-decoration:none;
+    float: left;
+}
+.down a:hover{ 
+    color:black;
+}
+.down i{ 
+    display: block; 
+    font-size:30px;
+}
+@media screen and (max-width:1226px){
+    .out{ 
+        width: 414px;
+    }
+    .leftSide{
+        display: none;
+    }
+    .liveVideo{ 
+        width: 388px;
+        height: 600px;
+        margin: -10px;
+        margin-bottom: 5px;
+    }
+    .rect{ 
+        left:110px;
+        top:130px;
+        width: 130px;
+        height: 130px;
+    }
+    @keyframes test{
+        from{
+            left: 500px;
+        }
+        to{
+            left: 0px;
+        }
+    }
+    .bottom{
+        width: 388px;
+        border-left: 1px solid black;
+        margin-left: -10px;
+    }
+    #shareBtn i{ 
+        margin-left: 320px;
+    }
+    .share{
+        width: 347px;
+        left:-7px;
+    }
+    .down{
+        display: block;
+    }
+    .share a{ 
+        margin-left: -10px;
+    }
+    .share #hiddenShare{ 
+        margin-left: -10px;
+    }
+    
+}
+#copy{
+    width:250px;
+    height: 80px;
+    background-color: rgb(227, 221, 221);
+    position: absolute;
+    left:70px;
+    top: 80px;
+    text-align: center;
+    display: none;
+}  
+#hiddenShare{ 
+    margin-top:5px; 
+    margin-left: 10px; 
+    position: relative;
+    left: 140px;
+}   
+</style>
+<body>
+    <div class="out">
+        <div id="box">
+            <div class="box1">
+                <h4>Turn on your camera</h3>
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                <i class="fa fa-circle" aria-hidden="true"></i> 
+                <br>
+                <h4>Automatic Face Recognition</h3>
+                <i class="fa fa-object-group" aria-hidden="true"></i>
+                <a href="#" id="start" class="myButton">Start</a> 
+            </div>
+            <!-- <button id="start"></button> -->
+        </div>
+        <div class="leftSide">
+            <div id="u1">
+                <i class="fa fa-user" id="uu"></i>  
+                <div class="common"> 
+                <p style="line-height: 50px;">Hello professor, how are you?</p></div>
+            </div>
+            <div id="u2">
+                <i class="fa fa-user" id="uu"></i>  
+                <div class="common"> 
+                <p style="line-height: 50px;">Hello professor!</p></div>
+            </div>
+            <div id="u3">
+                <i class="fa fa-user" id="uu"></i>  
+                <div class="common"> 
+                <p style="line-height: 50px;">Hello professor, how is it going?</p></div>
+                </div>
+                <div id="u4">
+                <i class="fa fa-user" id="uu"></i>  
+                <div class="common"> 
+                <p style="line-height: 50px;">Hello professor, how are you?</p></div>
+                </div>
+        </div>
+        <video class="liveVideo" autoplay id = "player"></video>
+        <div class="bottom" id="bar">
+            <a href="javascript:;" id="play" class="myButton" style="margin-top:5px; margin-left: 10px;" ><i class="fa fa-play-circle" aria-hidden="true" style="margin:0; display: inline;"></i> Text Reader</a>
+            <a href="./home.html" class="myButton" style="margin-top:5px; margin-left: 10px;" ><i class="fa fa-stop" aria-hidden="true" style="margin:0; display: inline;"></i>  End</a>    
+            <a href="#" id="shareBtn" style="text-decoration:none;color:black;"><i class="fa fa-share-alt-square"></i></a>  
+        </div>
+        <div class="danmu" id="d1">
+            He speaks well
+        </div>
+        <div class="danmu1" id="d2">
+            He is wondelful
+        </div>
+        <div class="danmu2" id="d3">
+             I agree
+        </div>
+        <div class="rect"></div>
+        <div class="share" id="share">
+            <h4 style="text-align:center">Share</h4>
+            <ul class="s-icon">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        Jane
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user-circle" ></i>
+                        Mike
+                    </a>
+                </li>
+      
+                <li>
+                  <a href="#">
+                    <i class="fa fa-user-circle" ></i>
+                      France
+                  </a>
+              </li>
+      
+              <li>
+                  <a href="#">
+                    <i class="fa fa-user-circle" ></i>
+                      Alex
+                  </a>
+              </li>
+            </ul>
+            <hr style="width:300px; height:2px;">
+            <ul class="s-icon">
+                <li>
+                    <a href="https://www.wechat.com/" target=”_blank”>
+                        <i class="fa-brands fa-weixin" aria-hidden="true" style="display: block; font-size:30px; color: white;background-color: rgb(20, 197, 20);width: 40px; height: 34px; margin:auto;border-radius: 5px; text-align: center; padding-top: 6px;"></i>
+                        Wechat
+                    </a>
+                </li>
+                <li>
+                    <a href="sms:" id="copyLink">
+                        <i class="fa-solid fa-comment" style="display: block; font-size:30px; color: white;background-color: rgb(20, 197, 20);width: 40px; height: 34px; margin:auto;border-radius: 5px; text-align: center; padding-top: 6px;"></i>
+                        Message
+                    </a>
+                </li>
+      
+                <li>
+                  <a href="https://twitter.com/i/flow/login" target=”_blank”>
+                    <i class="fa-brands fa-twitter-square" style="color:rgb(18, 150, 233)"></i> 
+                      twitter
+                  </a>
+              </li>
+      
+              <li>
+                  <a href="https://www.facebook.com/" target=”_blank”>
+                    <i class="fa-brands fa-facebook-square" style="color:rgb(18, 150, 233)"></i>
+                      facebook
+                  </a>
+              </li>
+            </ul>
+            <a href="#" id="hiddenShare" class="myButton">Cancel</a>
+            <div id="copy">
+                <h5 style="line-height: 40px">URL copied successfully</h5>
+            </div>
+        </div>
+        <div class="down">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-video"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-book"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>  
+    </div>
+    <audio src="./danmu.m4a" id="au"></audio>
+
+    
+    <script>
+        let start = document.getElementById("start")
+        let box = document.getElementById("box")
+        start.addEventListener('click', () => {
+            record();
+            playComment();
+            playDanmu();
+        });
+        async function record() {
+        const getMediaMethod = 'getUserMedia';
+        const stream = await navigator.mediaDevices[getMediaMethod]({
+            auto: true,
+            video: {
+                width: 500,//window.getComputedStyle(video1).getPropertyValue('width'),
+                height: 800 //window.getComputedStyle(video1).getPropertyValue('height')
+            }
+        });
+        player.srcObject = stream;
+        box.style = "display:none"
+    }
+    let d1 = document.getElementById("d1")
+    let d2 = document.getElementById("d2")
+    function playDanmu(){
+        setTimeout(()=>{
+            d1.style = "display:block"
+            setInterval(function(){
+            d1.style = "display:none"
+        },6000)
+        setInterval(function(){
+            d1.style = "display:block"
+        },7000)
+        setInterval(function(){
+            d2.style = "display:block"
+        },1000)
+        setInterval(function(){
+            d2.style = "display:none"
+        },7000)
+        setInterval(function(){
+            d3.style = "display:block"
+        },2000)
+        setInterval(function(){
+            d3.style = "display:none"
+        },8000)
+        },10000)
+        
+    }
+    
+    
+    let share = document.getElementById("share")
+    let shareBtn = document.getElementById("shareBtn")
+    let au = document.getElementById("au")
+    shareBtn.onclick = function(){
+        share.style = "display:block;"
+    }
+    let hiddenShare = document.getElementById("hiddenShare")
+    hiddenShare.onclick = function(){
+        share.style = "display:none;"
+    }
+    // play the audio
+    let play = document.getElementById("play")
+    play.onclick = function(){
+        au.play()
+    }
+
+    //comment
+    let u1 = document.getElementById("u1")
+    let u2 = document.getElementById("u2")
+    let u3 = document.getElementById("u3")
+    let u4 = document.getElementById("u4")
+    
+    function playComment(){
+        setTimeout(()=>{
+        u1.style.display = "block"
+    },3000)
+        setTimeout(()=>{
+            u2.style.display = "block"
+        },4500)
+        setTimeout(()=>{
+            u3.style.display = "block"
+        },5000)
+        setTimeout(()=>{
+            u4.style.display = "block"
+        },6500)
+    }
+    var copy = document.getElementById("copy")
+    let copyLink = document.getElementById("copyLink")
+    copyLink.onclick = function(){
+        const oInput = document.createElement('input')
+        oInput.value = window.location.href
+        document.body.appendChild(oInput)
+        oInput.select()
+        const successful = document.execCommand('copy')
+        oInput.remove()
+        copy.style.display = "block"
+        setTimeout(()=>{
+            copy.style.display = "none"
+        },1000)
+        return successful
+
+    }
+    </script>
+</body>
+</html>
